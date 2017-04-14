@@ -398,7 +398,9 @@ Ext.ux.form.MultiSelect = Ext.extend(Ext.form.Field,  {
 			this.jqueryAlias( "#"+selectId ).on('change', {controlId: this.id, parent: container}, function(e) {
                 //console.log("change");
 				toggleLblCombo(e.data, this);
-                curScope.storeAdded();
+				if(Ext.isFunction(curScope.storeAdded)){
+					curScope.storeAdded();
+				}
 			});
 			
 			//this.jqueryAlias( "#"+selectId ).focusout({controlId: this.id, parent: container}, function(e) {
